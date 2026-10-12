@@ -84,16 +84,21 @@
     .search-wrap{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #dfe8f3;border-radius:10px;padding:0 13px;height:42px;width:248px;color:#8da0bb}.search-wrap:focus-within{border-color:#6db3f6;box-shadow:0 0 0 3px rgba(42,150,231,.10)}.search-wrap input{outline:0;border:0;min-width:0;width:100%;background:transparent;font-size:12px;color:#1b3659}.search-wrap input::placeholder{color:#9aabc0}
     .project-summary{display:flex;align-items:center;gap:8px;color:#8291a7;font-size:12px;font-weight:600;margin-bottom:17px}.project-summary .pulse{width:7px;height:7px;border-radius:50%;background:#2eb99e}
     .repo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
-    .repo-card{display:flex;flex-direction:column;background:white;border:1px solid #e1eaf6;border-radius:17px;overflow:hidden;min-height:355px;transition:border-color .22s,transform .22s,box-shadow .22s}.repo-card:hover{transform:translateY(-4px);border-color:#aed1ff;box-shadow:0 18px 40px rgba(20,55,108,.10)}
+    .repo-card{position:relative;display:flex;flex-direction:column;background:white;border:1px solid #e1eaf6;border-radius:17px;overflow:hidden;min-height:355px;transition:border-color .22s,transform .22s,box-shadow .22s}.repo-card:hover{transform:translateY(-4px);border-color:#aed1ff;box-shadow:0 18px 40px rgba(20,55,108,.10)}
     .repo-visual{height:122px;position:relative;overflow:hidden;background:linear-gradient(126deg,#0b3474,#1465c3);padding:18px;display:flex;align-items:end}.repo-visual::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 77% 8%,rgba(105,222,255,.27),transparent 45%);pointer-events:none}
     .repo-visual.data{background:linear-gradient(130deg,#07355d,#0879a5)}.repo-visual.experiment{background:linear-gradient(130deg,#14275e,#3151b0)}.repo-visual.auto{background:linear-gradient(130deg,#053a7b,#13849f)}
     .repo-visual::after{content:"";position:absolute;right:-13px;top:-65px;width:205px;height:205px;border:1px solid rgba(255,255,255,.14);border-radius:50%;box-shadow:0 0 0 24px rgba(255,255,255,.035),0 0 0 56px rgba(255,255,255,.025)}
     .repo-art{position:absolute;right:15px;top:5px;width:160px;height:110px;opacity:.62}.repo-art svg{width:100%;height:100%}.repo-index{position:relative;z-index:1;display:flex;gap:8px;align-items:center;color:#d6eaff;font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:800}.repo-index i{width:20px;height:1px;background:#76c8f5}
     .repo-content{padding:23px 23px 20px;flex:1;display:flex;flex-direction:column}
     .repo-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.category-pill{font-size:10px;padding:5px 9px;border-radius:7px;background:#eaf4ff;color:#1e65b8;font-weight:800}.repo-date{font-size:11px;color:#93a0b3;font-weight:600}
+    /* The project title makes the entire card clickable, without blocking footer actions. */
+    .repo-primary-link{color:inherit;text-decoration:none}
+    .repo-primary-link::after{content:"";position:absolute;inset:0;z-index:1}
+    .repo-primary-link:focus-visible{outline:3px solid var(--sky);outline-offset:4px;border-radius:4px}
+    .repo-card:hover .repo-primary-link{color:#0868c9}
     .repo-content h3{font-size:17px;line-height:1.35;letter-spacing:-.045em;overflow-wrap:anywhere;margin:0 0 11px;color:#102c57}
     .repo-content p{font-size:12px;line-height:1.8;color:#708098;min-height:44px;margin:0 0 21px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
-    .repo-foot{margin-top:auto;display:flex;justify-content:space-between;gap:12px;align-items:center;border-top:1px solid #eef2f8;padding-top:14px}.language{display:flex;gap:7px;align-items:center;color:#667994;font-size:11px;font-weight:700}.lang-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#9cb2d3}.repo-links{display:flex;align-items:center;gap:13px}.repo-links a{display:inline-flex;align-items:center;gap:5px;color:#116bc9;font-size:11px;font-weight:800}.repo-links a:hover{text-decoration:underline}.repo-links a svg{width:13px;height:13px}
+    .repo-foot{margin-top:auto;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;border-top:1px solid #eef2f8;padding-top:14px}.language{display:flex;gap:7px;align-items:center;color:#667994;font-size:11px;font-weight:700}.lang-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#9cb2d3}.repo-links{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.repo-links a{position:relative;z-index:2;display:inline-flex;align-items:center;gap:5px;color:#116bc9;font-size:11px;font-weight:800}.repo-links a:hover{text-decoration:underline}.repo-links a svg{width:13px;height:13px}.repo-links a.live-link{padding:7px 9px;background:#e7f4ff;color:#0c66bc;border-radius:7px}.repo-links a.live-link:hover{background:#d4ebff;text-decoration:none}.repo-card:has(.live-link){cursor:pointer}
     .empty-state{grid-column:1/-1;padding:54px 25px;text-align:center;border:1px dashed #d4e0ef;border-radius:17px;color:#72819a;background:#fff}.empty-state h3{font-size:17px;color:#1b3a66;margin:8px 0 5px}.empty-state p{margin-bottom:0;font-size:13px}
     .project-bottom{display:flex;align-items:center;justify-content:space-between;gap:17px;flex-wrap:wrap;margin-top:28px;padding:17px 19px;border:1px solid #dfebf8;background:#ecf5ff;border-radius:13px}.project-bottom p{margin:0;color:#607894;font-size:12px}.project-bottom a{color:#115eb4;font-size:12px;font-weight:800;display:inline-flex;align-items:center;gap:8px}.project-bottom a:hover{text-decoration:underline}
     .approach-section{position:relative;overflow:hidden}.approach-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:95px;align-items:center}.approach-copy{font-size:14px;color:#718097;line-height:1.9}.approach-copy strong{color:#1c3d69}.approach-list{display:grid;gap:15px}
@@ -153,7 +158,7 @@
         </div>
       </div>
     </section>
-    <div class="intro-strip"><div class="container intro-inner"><div class="intro-copy"><span class="avatar">SA</span><div><strong>Shaari Alwi</strong><p>Head of Data · Strategy &amp; Digital Innovation</p></div></div><div class="intro-right"><span><svg class="icon" style="width:15px"><use href="#i-globe"/></svg> Kuala Lumpur, Malaysia</span><span><svg class="icon" style="width:15px"><use href="#i-github"/></svg> <span id="repo-count-top">10</span> public GitHub repositories</span></div></div></div>
+    <div class="intro-strip"><div class="container intro-inner"><div class="intro-copy"><span class="avatar">SA</span><div><strong>Shaari Alwi</strong><p>Head of Data · Strategy &amp; Digital Innovation</p></div></div><div class="intro-right"><span><svg class="icon" style="width:15px"><use href="#i-globe"/></svg> Kuala Lumpur, Malaysia</span><span><svg class="icon" style="width:15px"><use href="#i-github"/></svg> <span id="repo-count-top">9</span> public GitHub repositories</span></div></div></div>
     <section class="section" id="about" aria-labelledby="about-title"><div class="container"><div class="section-head"><div><div class="section-kicker">01 / What I do</div><h2 id="about-title">Where strategy meets building.</h2><p class="section-lead">My interests sit at the intersection of trusted data, practical automation and digital tools that simplify everyday work.</p></div></div><div class="expertise-grid">
       <article class="expertise-card"><div class="expertise-icon"><svg class="icon" style="width:25px;height:25px"><use href="#i-database"/></svg></div><h3>Data &amp; Analytics</h3><p>From data modelling and engineering to reporting, dashboards and using insight to guide decisions.</p><div class="expertise-tags"><span>Python</span><span>Snowflake</span><span>Power BI</span><span>AWS</span></div></article>
       <article class="expertise-card"><div class="expertise-icon cyan"><svg class="icon" style="width:25px;height:25px"><use href="#i-gear"/></svg></div><h3>Process Automation</h3><p>Connecting systems, streamlining workflows and removing repetitive steps with efficient integrations.</p><div class="expertise-tags"><span>n8n</span><span>Google Workspace</span><span>APIs</span></div></article>
@@ -185,12 +190,24 @@
       {name:'shaarialwi.github.io', description:'My GitHub Pages website repository and web development experiments.', language:'JavaScript', html_url:'https://github.com/shaarialwi/shaarialwi.github.io', homepage:'', updated_at:null, topics:[], fork:false, stargazers_count:0},
       {name:'worldcup', description:'World Cup testing and HTML experimentation.', language:'HTML', html_url:'https://github.com/shaarialwi/worldcup', homepage:'', updated_at:null, topics:[], fork:false, stargazers_count:0},
       {name:'Hello-WOrld', description:'Say Hello to GitHub', language:null, html_url:'https://github.com/shaarialwi/Hello-WOrld', homepage:'', updated_at:null, topics:[], fork:false, stargazers_count:0},
-      {name:'mebiz', description:'My working folder (repository currently empty).', language:null, html_url:'https://github.com/shaarialwi/mebiz', homepage:'', updated_at:null, topics:[], fork:false, stargazers_count:0}
+      {name:'mebiz', description:'My working folder (repository currently empty).', language:null, html_url:'https://github.com/shaarialwi/mebiz', homepage:'', updated_at:null, topics:[], fork:false, stargazers_count:0},
+      {name:'myweb', description:'Shaarialwi website', language:'HTML', html_url:'https://github.com/shaarialwi/myweb', homepage:'', updated_at:null, topics:[], fork:false, stargazers_count:0},
+      {name:'Sepaktakraw', description:'Sepaktakraw Player Tracker', language:'HTML', html_url:'https://github.com/shaarialwi/Sepaktakraw', homepage:'', updated_at:null, topics:[], fork:false, stargazers_count:0},
+      {name:'mrantipoly', description:'MRANTI Park Monopoly', language:'HTML', html_url:'https://github.com/shaarialwi/mrantipoly', homepage:'', updated_at:null, topics:[], fork:false, stargazers_count:0}
     ];
     const escapeHTML = (v) => String(v ?? '').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
     const safeURL = (value, githubOnly=false) => {
       try { const u=new URL(String(value)); if(!['https:','http:'].includes(u.protocol))return ''; if(githubOnly && u.hostname!=='github.com')return ''; return u.href; } catch { return ''; }
     };
+    // Live websites: explicitly mapped to the pages deployed by the repository owner.
+    // Add more entries here when you publish other projects on GitHub Pages.
+    // mrantipoly currently stores its main HTML as indexx.html, not index.html.
+    const LIVE_SITES = Object.freeze({
+      'sepaktakraw':'https://shaarialwi.github.io/Sepaktakraw/',
+      'mrantipoly':'https://shaarialwi.github.io/mrantipoly/indexx.html',
+      'myweb':'https://shaarialwi.com/'
+    });
+    const websiteOf = (r) => safeURL(LIVE_SITES[r.name.toLowerCase()] || r.homepage || '');
     const overrides = {'data-analyst':'Data & AI','visitor':'Experiments','shaarialwi.github.io':'Web & Apps','worldcup':'Experiments','hello-world':'Experiments','mebiz':'Experiments'};
     const categoryOf = (r) => {
       const key=r.name.toLowerCase(); if(overrides[key])return overrides[key];
@@ -207,20 +224,22 @@
     const compactDate=(date)=> { if(!date)return ''; const parsed=new Date(date); if(Number.isNaN(parsed.getTime()))return ''; return parsed.toLocaleDateString('en-MY',{month:'short',year:'numeric'}); };
     function card(r,index){
       const cat=categoryOf(r); const repoUrl=safeURL(r.html_url,true); if(!repoUrl)return '';
-      const homepage=safeURL(r.homepage||'');
+      const website=websiteOf(r);
+      const primaryUrl=website||repoUrl;
+      const name=escapeHTML(r.name.replaceAll('-',' ').replaceAll('_',' '));
       const visual=cat==='Data & AI'?'data':cat==='Automation'?'auto':cat==='Experiments'?'experiment':'';
       const date=compactDate(r.pushed_at||r.updated_at);
       const description=(r.description||'Explore the source code, files and development progress in this repository.').trim();
       const lang=(r.language||'Repository');
-      return `<article class="repo-card"><div class="repo-visual ${visual}"><div class="repo-art">${art}</div><div class="repo-index">${String(index+1).padStart(2,'0')} <i></i> PUBLIC REPOSITORY</div></div><div class="repo-content"><div class="repo-card-top"><span class="category-pill">${escapeHTML(cat)}</span>${date?`<span class="repo-date">Updated ${escapeHTML(date)}</span>`:''}</div><h3>${escapeHTML(r.name.replaceAll('-',' ').replaceAll('_',' '))}</h3><p>${escapeHTML(description)}</p><div class="repo-foot"><span class="language"><i class="lang-dot" style="background:${languageColors[r.language]||'#9cb2d3'}"></i>${escapeHTML(lang)}</span><div class="repo-links">${homepage?`<a href="${escapeHTML(homepage)}" target="_blank" rel="noopener noreferrer" aria-label="Open demo for ${escapeHTML(r.name)}">Demo ↗</a>`:''}<a href="${escapeHTML(repoUrl)}" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeHTML(r.name)} on GitHub">Code <svg class="icon"><use href="#i-external"/></svg></a></div></div></div></article>`;
+      return `<article class="repo-card"><div class="repo-visual ${visual}"><div class="repo-art">${art}</div><div class="repo-index">${String(index+1).padStart(2,'0')} <i></i> ${website?'LIVE PROJECT':'PUBLIC REPOSITORY'}</div></div><div class="repo-content"><div class="repo-card-top"><span class="category-pill">${escapeHTML(cat)}</span>${date?`<span class="repo-date">Updated ${escapeHTML(date)}</span>`:''}</div><h3><a class="repo-primary-link" href="${escapeHTML(primaryUrl)}" target="_blank" rel="noopener noreferrer" aria-label="${website?'Open live website':'View GitHub repository'} for ${escapeHTML(r.name)}">${name}</a></h3><p>${escapeHTML(description)}</p><div class="repo-foot"><span class="language"><i class="lang-dot" style="background:${languageColors[r.language]||'#9cb2d3'}"></i>${escapeHTML(lang)}</span><div class="repo-links">${website?`<a class="live-link" href="${escapeHTML(website)}" target="_blank" rel="noopener noreferrer" aria-label="Open live website for ${escapeHTML(r.name)}">Live Website <svg class="icon"><use href="#i-external"/></svg></a>`:''}<a href="${escapeHTML(repoUrl)}" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeHTML(r.name)} on GitHub">Code <svg class="icon"><use href="#i-external"/></svg></a></div></div></div></article>`;
     }
     function render(){
       const q=state.query.toLowerCase().trim();
       const filtered=state.repos.filter(r=> (state.filter==='All'||categoryOf(r)===state.filter) && (!q || [r.name,r.description,r.language,...(r.topics||[])].filter(Boolean).join(' ').toLowerCase().includes(q)));
       grid.innerHTML=filtered.length ? filtered.map(card).join('') : '<div class="empty-state"><svg class="icon" style="width:27px;height:27px;color:#5298df"><use href="#i-search"/></svg><h3>No matching repositories</h3><p>Try a different search term or select another category.</p></div>';
       status.textContent=`Showing ${filtered.length} of ${state.repos.length} public repositories${state.live?' · synced with GitHub':' · offline preview'}`;
-      document.getElementById('repo-count-top').textContent=state.live?String(state.repos.length):'10';
-      note.textContent=state.live?'Automatically loaded from GitHub. New public repositories are included when the page is refreshed.':'Live GitHub sync unavailable; showing six verified repositories. See the full list on GitHub.';
+      document.getElementById('repo-count-top').textContent=state.live?String(state.repos.length):String(state.repos.length);
+      note.textContent=state.live?'Automatically loaded from GitHub. New public repositories are included when the page is refreshed.':'Live GitHub sync unavailable; showing nine saved repositories. See the full list on GitHub.';
     }
     document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{
       state.filter=button.dataset.filter;
